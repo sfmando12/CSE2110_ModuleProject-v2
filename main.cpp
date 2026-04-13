@@ -9,7 +9,7 @@ using namespace std;
 void Userguess(int& x, int& y, int& z);
 int random3digit(int& x, int& y, int& z);
 string isgreen(int num1, int num2);
-
+string isyellow(int num1, int num2, int num3);
 
 int main()
 {
@@ -20,12 +20,18 @@ int main()
     cout << secretCode1 << secretCode2 << secretCode3 << endl;
 
     cout << "Welcome to Mastermind!" << endl;
+
+`
     Userguess(usercode1, usercode2, usercode3);
     cout << usercode1 << usercode2 << usercode3 << endl;
+
     hint += isgreen(secretCode1, usercode1);
     hint += isgreen(secretCode2, usercode2);
     hint += isgreen(secretCode3, usercode3);
 
+    hint += isyellow(usercode1, secretCode2, secretCode3);
+    hint += isyellow(usercode2, secretCode1, secretCode3);
+    hint += isyellow(usercode3, secretCode1, secretCode2);
 
     if (hint == "") cout << "red";
 
@@ -76,4 +82,13 @@ string isgreen(int num1, int num2)
         return "Green ";
     }
     return "";
+}
+string isyellow(int num1, int num2, int num3)
+{
+    if (num1 == num2 || num1 == num3)
+    {
+        return "Yellow";
+    }
+    return "";
+
 }
