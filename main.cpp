@@ -13,6 +13,9 @@ string isyellow(int num1, int num2, int num3);
 
 int main()
 {
+	int attempt = 0;
+
+	while (attempt < 5 ) {
     int usercode1, usercode2, usercode3;
     int secretCode1 = 0, secretCode2 = 0, secretCode3 = 0;
     string hint = "";
@@ -21,7 +24,6 @@ int main()
 
     cout << "Welcome to Mastermind!" << endl;
 
-`
     Userguess(usercode1, usercode2, usercode3);
     cout << usercode1 << usercode2 << usercode3 << endl;
 
@@ -36,7 +38,10 @@ int main()
     if (hint == "") cout << "red";
 
     cout << hint << endl;
-
+	attempt++;
+	if ( usercode1 == secretCode1 && usercode2 == secretCode2 && usercode3 == secretCode3 ) {
+		cout << "\n You cracked the code! In: " << attempt << " attempts" << endl;
+ }
     return 0;
 }
 
@@ -90,5 +95,4 @@ string isyellow(int num1, int num2, int num3)
         return "Yellow";
     }
     return "";
-
 }
