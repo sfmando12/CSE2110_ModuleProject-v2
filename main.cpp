@@ -11,8 +11,7 @@ int random3digit(int& x, int& y, int& z);
 string isgreen(int num1, int num2);
 string isyellow(int num1, int num2, int num3);
 
-int main()
-{
+int main() {
 	int attempt = 0;
 
 	while (attempt < 5 ) {
@@ -39,9 +38,12 @@ int main()
 
     cout << hint << endl;
 	attempt++;
-	if ( usercode1 == secretCode1 && usercode2 == secretCode2 && usercode3 == secretCode3 ) {
-		cout << "\n You cracked the code! In: " << attempt << " attempts" << endl;
- }
+	    // This line is causing everything to break in other functions
+	    // figure out and look later
+	// ( usercode1 == secretCode1 && usercode2 == secretCode2 && usercode3 == secretCode3 ) {
+
+	    cout << "\n You cracked the code! In: " << attempt << " attempts" << endl;
+  }
     return 0;
 }
 
@@ -73,8 +75,7 @@ int random3digit(int& x, int& y, int& z)
 
 //
 //
-void Userguess(int& x, int& y, int& z)
-{
+void Userguess(int& x, int& y, int& z) {
     cout << "Please enter your guess: (ex: 1 4 5) ";
     cin >> x >> y >> z;
 }
